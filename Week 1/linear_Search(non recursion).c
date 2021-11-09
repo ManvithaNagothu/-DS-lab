@@ -14,7 +14,7 @@ int main(){
     if(x  == -1)
         printf("Element Not found");
     else
-        printf("Element found at %d position",x);
+        printf("Element found at %d position",x+1);
     }
 int linear_Search(int a[],int n,int ele){
     int i;
