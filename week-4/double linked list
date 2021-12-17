@@ -1,77 +1,71 @@
-#include <stdio.h>
+#include<stdio.h>
 #include<stdlib.h>
 struct node{
     int data,ele,pos;
-    struct node* link;
     struct node*prev;
+    struct node*next;
 };
-struct node *head = NULL,*temp,*current,*tail = NULL,*temp1;
+struct node *head = NULL, *tail = NULL, *cur, *temp, *temp1;
 struct node *create(){
     int n;
-    printf("enter no of elements");
+    printf("Enter no of nodes :");
     scanf("%d",&n);
     while(n--){
-        current  = (struct node*)malloc(sizeof(struct node));
-        scanf("%d",&(current->data));
-        current->link = NULL;
-        current->prev = NULL;
-    }
+        cur = (struct node*)malloc(sizeof(struct node));
+        scanf("%d",&(cur->data));
+        cur->prev = NULL;
+        cur->next = NULL;
     if (head == NULL){
-        tail = head = current;
+         head = cur;
     }
     else{
-        temp = tail;
+        temp = head;
+        while(temp->next!=NULL)
+            temp = temp->next;
+        tail=temp->next = cur;
+        cur->prev =temp;
+    }
     }
     return head;
 }
-
 struct node *insert_begin(int ele){
-    current  = (struct node*)malloc(sizeof(struct node));
-    current->data = ele;
-    current->prev = NULL;
-    current->link = head;
-    head->prev = current;
-    head = current;
+    cur = (struct node*)malloc(sizeof(struct node));
+    cur->data = ele;
+    cur->next = head;
+    head->prev = cur;
+    cur->prev = NULL;
+    head = cur;
     return head;
 }
 struct node *insert_end(int ele){
-    current  = (struct node*)malloc(sizeof(struct node));
-    current->data = ele;
-    current->link = NULL;
-    current->prev = tail;
-    tail->link = current;
-    tail = current;
+    cur = (struct node*)malloc(sizeof(struct node));
+    cur->data = ele;
+    cur->next = NULL;
+    tail->next = cur;
+    cur->prev = tail;
+    tail = cur;
     return head;
 }
 struct node *insert_pos(int pos,int ele){
-    current  = (struct node*)malloc(sizeof(struct node));
-    current->data = ele;
-    int c = 1;
+    int c=1;
+    cur = (struct node*)malloc(sizeof(struct node));
+    cur->data = ele;
     temp = head;
     while(c<pos){
         temp1 = temp;
-        temp = temp->link;
+        temp = temp->next;
         c++;
     }
-    temp1->link = current;
-    current ->prev = temp1;
-    current->link = temp;
-    temp->prev = current;
+    temp1->next = cur;
+    cur ->prev = temp1;
+    cur->next = temp;
+    temp->prev = cur;
     return head;
-    }
-
-void display(struct node* head){
-    temp = head;
-    while(temp != NULL){
-        printf("%d",temp->data);
-        temp = temp->link;
-    }
-    
-} 
+}
 struct node *delete_begin(struct node *head){
     temp = head;
-    head = head->link;
-    head->prev = NULL;
+    head = temp->next;
+    temp->prev = NULL;
     printf("deleted element %d",temp->data);
     free(temp);
     return head;
@@ -79,32 +73,37 @@ struct node *delete_begin(struct node *head){
 struct node *delete_end(struct node *tail){
     temp = tail;
     tail = tail->prev;
-    tail->link = NULL;
+    tail->next = NULL;
     printf("deleted element %d",temp->data);
     free(temp);
-    return head;
+    return tail;
 }
 struct node *delete_pos(struct node *head,int pos){
     int c = 1;
     temp = head;
     while(c<pos){
         temp1 = temp;
-        temp = temp->link;
+        temp = temp->next;
         c++;
     }
-    temp1->link = temp->link;
-    temp->link->prev = temp1;
+    temp1->next = temp->next;
+    temp->next->prev = temp1;
     printf("deleted element %d",temp->data);
     free(temp);
     return head;
     }
-
-
+void display(struct node* head){
+    temp = head;
+    while(temp != NULL){
+        printf("%d->",temp->data);
+        temp = temp->next;
+    }
+}
 
 int main(){
     int ch,ele,pos,key;
     while(1){
-        printf("\n1-create\n2-insert at begin\n3-insert at end\n4-insert at pos\n5-delete at begin\n6-delete at end\n7-delete at pos\n8-display\n");
+        printf("\n 1-create\n 2-insert at begin\n 3-insert at end\n 4-insert at pos\n 5-delete at begin\n 6-delete at end\n 7-delete at pos\n 8-display\n 9-exit\n");
         printf("\nEnter your choice : ");
         scanf("%d",&ch);
         switch(ch){
@@ -122,7 +121,7 @@ int main(){
                      break;
             case 5 : head = delete_begin(head);
                      break;
-            case 6 : head = delete_end(head);
+            case 6 : tail = delete_end(tail);
                      break;
             case 7 : scanf("%d",&pos);
                      head = delete_pos(head,pos);
@@ -132,4 +131,17 @@ int main(){
             case 9 : exit(0);
         }
     }
- }
+}
+
+Output:
+1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 1
