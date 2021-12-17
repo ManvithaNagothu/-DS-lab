@@ -145,3 +145,181 @@ Output:
  9-exit
 
 Enter your choice : 1
+Enter no of nodes :2
+5
+7
+
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 8
+5->7->
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 2
+3
+
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 8
+3->5->7->
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 3
+9
+
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 8
+3->5->7->9->
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 4
+2
+1
+
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 8
+3->1->5->7->9->
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 5
+deleted element 3
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 8
+1->5->7->9->
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 6
+deleted element 9
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 8
+1->5->7->
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 7
+2
+deleted element 5
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 8
+1->7->
+ 1-create
+ 2-insert at begin
+ 3-insert at end
+ 4-insert at pos
+ 5-delete at begin
+ 6-delete at end
+ 7-delete at pos
+ 8-display
+ 9-exit
+
+Enter your choice : 9
+
+
