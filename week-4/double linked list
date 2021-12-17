@@ -1,0 +1,135 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data,ele,pos;
+    struct node* link;
+    struct node*prev;
+};
+struct node *head = NULL,*temp,*current,*tail = NULL,*temp1;
+struct node *create(){
+    int n;
+    printf("enter no of elements");
+    scanf("%d",&n);
+    while(n--){
+        current  = (struct node*)malloc(sizeof(struct node));
+        scanf("%d",&(current->data));
+        current->link = NULL;
+        current->prev = NULL;
+    }
+    if (head == NULL){
+        tail = head = current;
+    }
+    else{
+        temp = tail;
+    }
+    return head;
+}
+
+struct node *insert_begin(int ele){
+    current  = (struct node*)malloc(sizeof(struct node));
+    current->data = ele;
+    current->prev = NULL;
+    current->link = head;
+    head->prev = current;
+    head = current;
+    return head;
+}
+struct node *insert_end(int ele){
+    current  = (struct node*)malloc(sizeof(struct node));
+    current->data = ele;
+    current->link = NULL;
+    current->prev = tail;
+    tail->link = current;
+    tail = current;
+    return head;
+}
+struct node *insert_pos(int pos,int ele){
+    current  = (struct node*)malloc(sizeof(struct node));
+    current->data = ele;
+    int c = 1;
+    temp = head;
+    while(c<pos){
+        temp1 = temp;
+        temp = temp->link;
+        c++;
+    }
+    temp1->link = current;
+    current ->prev = temp1;
+    current->link = temp;
+    temp->prev = current;
+    return head;
+    }
+
+void display(struct node* head){
+    temp = head;
+    while(temp != NULL){
+        printf("%d",temp->data);
+        temp = temp->link;
+    }
+    
+} 
+struct node *delete_begin(struct node *head){
+    temp = head;
+    head = head->link;
+    head->prev = NULL;
+    printf("deleted element %d",temp->data);
+    free(temp);
+    return head;
+}
+struct node *delete_end(struct node *tail){
+    temp = tail;
+    tail = tail->prev;
+    tail->link = NULL;
+    printf("deleted element %d",temp->data);
+    free(temp);
+    return head;
+}
+struct node *delete_pos(struct node *head,int pos){
+    int c = 1;
+    temp = head;
+    while(c<pos){
+        temp1 = temp;
+        temp = temp->link;
+        c++;
+    }
+    temp1->link = temp->link;
+    temp->link->prev = temp1;
+    printf("deleted element %d",temp->data);
+    free(temp);
+    return head;
+    }
+
+
+
+int main(){
+    int ch,ele,pos,key;
+    while(1){
+        printf("\n1-create\n2-insert at begin\n3-insert at end\n4-insert at pos\n5-delete at begin\n6-delete at end\n7-delete at pos\n8-display\n");
+        printf("\nEnter your choice : ");
+        scanf("%d",&ch);
+        switch(ch){
+            case 1 : head = create();
+                     break;
+            case 2 : scanf("%d",&ele);
+                     head = insert_begin(ele);
+                     break;
+            case 3 : scanf("%d",&ele);
+                     head = insert_end(ele);
+                     break;
+            case 4 : scanf("%d",&pos);
+                     scanf("%d",&ele);
+                     head = insert_pos(pos,ele);
+                     break;
+            case 5 : head = delete_begin(head);
+                     break;
+            case 6 : head = delete_end(head);
+                     break;
+            case 7 : scanf("%d",&pos);
+                     head = delete_pos(head,pos);
+                     break;
+            case 8 : display(head);
+                     break;
+            case 9 : exit(0);
+        }
+    }
+ }
