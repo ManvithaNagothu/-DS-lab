@@ -65,3 +65,45 @@ int main(){
        }
     }
 }
+ Output
+
+1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+Enter your choice :1
+Enter element to be inserted :1
+
+ 1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+Enter your choice :1
+Enter element to be inserted :2
+
+ 1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+Enter your choice :3
+1
+2
+
+ 1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+Enter your choice :2
+deleted element is 1
+ 1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+Enter your choice :3
+2
+
+ 1-enqueue
+ 2-dequeue
+ 3-display
+ 4-exit
+Enter your choice :4
